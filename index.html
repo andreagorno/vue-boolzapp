@@ -7,6 +7,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="css/style.css">
@@ -15,7 +18,40 @@
 </head>
 <body>
     <div id="root">
-        
+        <div class="container">
+            <div class="left-section">
+                <div id="user">
+                    <img src="img/avatar_io.jpg" alt="myProfile">
+                    <span>Nome Utente</span>
+                    <i class="fas fa-circle-notch"></i>
+                    <i class="fas fa-comment-alt"></i>
+                    <i class="fas fa-ellipsis-v"></i>
+
+                </div>
+                <div id="notifications">
+                    <span class="bell">
+                        <i class="fas fa-bell-slash"></i>
+                    </span>
+                    <div class="turnOnNotif">
+                        <span>
+                            Ricevi notifiche di nuovi messaggi
+                        </span>
+                        <span>
+                            Attiva notifiche desktop
+                        </span>
+                    </div>
+                </div>
+                <div id="findChat">
+                    <input type="text" placeholder="Cerca o inizia una nuova chat">
+                </div>
+                <div id="chats"></div>
+            </div>
+            <div class="right-section">
+                <div id="openChat"></div>
+                <div id="conversation"></div>
+                <div id="typeMessage"></div>
+            </div>
+        </div>
     </div>
 
     <script src="js/script.js"></script>

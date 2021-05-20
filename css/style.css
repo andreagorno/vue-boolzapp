@@ -1,3 +1,142 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
 body {
-    background-color: lightgrey;
+    background-color: #D8DBD6;
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    height: calc(100vh - 100px);
+    margin: 50px auto;
+    background-color: white;
+}
+/* leftSection start */
+.left-section {
+    width: 35%;
+    height: 100%;
+    background-color: yellow;
+}
+/* leftSection => user */
+#user {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    background-color: #EAEAEA;
+    border-right: 1px solid lightgrey;
+}
+
+#user img {
+    height: 80%;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+#user span {
+    flex-grow: 1;
+    font-weight: bold;
+}
+
+#user i {
+    padding: 10px;
+    font-size: 20px;
+    color: grey;
+}
+/* /leftSection => user */
+
+/* leftSection => notifications */
+#notifications {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    height: 12%;
+    background-color: #8EDAFC;
+}
+
+.bell {
+    display: inline-block;
+    background-color: white;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 50%;
+}
+
+.bell i {
+    font-size: 26px;
+    color: #8EDAFC;
+}
+
+.turnOnNotif {
+    display: flex;
+    flex-direction: column;
+}
+
+.turnOnNotif span:first-child {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.turnOnNotif span:last-child {
+    font-size: 12px;
+    color: grey;
+    text-decoration: underline;
+}
+/* /leftSection => notifications */
+
+/* leftSection => findChat */
+#findChat {
+    width: 100%;
+    height: 8%;
+    background-color: #EAEAEA;
+}
+
+#findChat input {
+    width: calc(100% - 10px);
+    height: calc(100% - 20px);
+    margin: 10px 5px;
+    border: none;
+    border-radius: 2px;
+    background-image: url("../img/search.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-left: 40px;
+    font-size: 12px;
+}
+/* /leftSection => findChat */
+#chats {
+    width: 100%;
+    height: 70%;
+    background-color: #FFFFFF;
+}
+
+/* rightSection start */
+.right-section {
+    width: 65%;
+    height: 100%;
+    background-color: yellowgreen;
+}
+
+#openChat {
+    height: 10%;
+    background-color: #EAEAEA;
+}
+
+#conversation {
+    height: 80%;
+    background-image:url("../img/mine.jpg");
+}
+
+#typeMessage {
+    height: 10%;
+    background-color: #EAEAEA;
 }

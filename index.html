@@ -45,10 +45,10 @@
                     <input type="text" placeholder="Cerca o inizia una nuova chat">
                 </div>
                 <div id="chats">
-                    <div class="chat">
-                        <img src="img/avatar_1.jpg" alt="profile1">
+                    <div class="chat" v-for="(contact, index) in contacts">
+                        <img alt="profile1" :src="getImage(index)">
                         <div class="nameChat">
-                            <span>Michele</span>
+                            <span>{{ contacts[index].name }}</span>
                             <span>Tutto fatto!...</span>
                         </div>
                         <div class="dayTime">
@@ -58,9 +58,44 @@
                 </div>
             </div>
             <div class="right-section">
-                <div id="openChat"></div>
-                <div id="conversation"></div>
-                <div id="typeMessage"></div>
+                <div id="openChat">
+                    <div class="openChatProfile">
+                        <img src="img/avatar_1.jpg" alt="profile1">
+                        <div class="openChatProfileName">
+                            <span>Michele</span>
+                            <span>Ultimo accesso oggi alle 10/01/2020 16:15:22</span>
+                        </div>
+                    </div>
+                    <div class="openChatOptions">
+                        <i class="fas fa-search"></i>
+                        <i class="fas fa-paperclip"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                </div>
+                <div id="conversation">
+                    <!-- <div> -->
+                        <div class="userMessage clearfix">
+                            <p class="messageText">Hai Portato a spasso il cane?</p>
+                            <span class="messageDate">10/01/2020 15:30:35</span>
+                        </div>
+                    <!-- </div>
+                    <div> -->
+                        <div class="userMessage clearfix">
+                            <p class="messageText">Ricordati di dargli da mangiare</p>
+                            <span class="messageDate">10/01/2020 15:50:35</span>
+                        </div>
+                    <!-- </div> -->
+                    <div class="strangerMessage clearfix">
+                        <p class="messageText">Tutto fatto!</p>
+                            <span class="messageDate">10/01/2020 16:10:35</span>
+                    </div>
+                </div>
+                <div id="typeMessage">
+                    <i class="far fa-smile"></i>
+                    <input type="text" placeholder="Scrivi un messaggio">
+                    <i class="fas fa-microphone"></i>
+
+                </div>
             </div>
         </div>
     </div>

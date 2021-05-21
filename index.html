@@ -45,14 +45,14 @@
                     <input type="text" placeholder="Cerca o inizia una nuova chat">
                 </div>
                 <div id="chats">
-                    <div class="chat" v-for="(contact, index) in contacts">
+                    <div class="chat" :class="(index == activeContact) ? 'active' : '' " v-for="(contact, index) in contacts" @click="setActive(index)">
                         <img alt="profile1" :src="getImage(index)">
                         <div class="nameChat">
-                            <span>{{ contacts[index].name }}</span>
-                            <span>Tutto fatto!...</span>
+                            <span>{{ contact.name }}</span>
+                            <span>{{ getLastMessageText(index) }}</span>
                         </div>
                         <div class="dayTime">
-                            <span>10/01/2020 16:15:22</span>
+                            <span>{{ getLastMessageData(index) }}</span>
                         </div>
                     </div>
                 </div>
@@ -60,10 +60,10 @@
             <div class="right-section">
                 <div id="openChat">
                     <div class="openChatProfile">
-                        <img src="img/avatar_1.jpg" alt="profile1">
+                        <img :src="getImage(activeContact)" alt="profile1">
                         <div class="openChatProfileName">
-                            <span>Michele</span>
-                            <span>Ultimo accesso oggi alle 10/01/2020 16:15:22</span>
+                            <span>{{ getName(activeContact) }}</span>
+                            <span>Ultimo accesso oggi alle {{ getLastMessageData(activeContact) }}</span>
                         </div>
                     </div>
                     <div class="openChatOptions">
@@ -73,22 +73,22 @@
                     </div>
                 </div>
                 <div id="conversation">
-                    <!-- <div> -->
-                        <div class="userMessage clearfix">
-                            <p class="messageText">Hai Portato a spasso il cane?</p>
-                            <span class="messageDate">10/01/2020 15:30:35</span>
-                        </div>
-                    <!-- </div>
-                    <div> -->
-                        <div class="userMessage clearfix">
-                            <p class="messageText">Ricordati di dargli da mangiare</p>
-                            <span class="messageDate">10/01/2020 15:50:35</span>
-                        </div>
-                    <!-- </div> -->
+                
+                    <div v-for="(message, index) in contacts[activeContact].messages" class="clearfix" :class="(message.status == 'sent') ? 'userMessage' : 'strangerMessage' ">
+                        <p class="messageText">{{ message.text }}</p>
+                        <span class="messageDate">{{ message.date }}</span>
+                    </div>
+                    
+                    
+                    <!-- <div class="userMessage clearfix">
+                        <p class="messageText">Ricordati di dargli da mangiare</p>
+                        <span class="messageDate">10/01/2020 15:50:35</span>
+                    </div>
+                    
                     <div class="strangerMessage clearfix">
                         <p class="messageText">Tutto fatto!</p>
                             <span class="messageDate">10/01/2020 16:10:35</span>
-                    </div>
+                    </div> -->
                 </div>
                 <div id="typeMessage">
                     <i class="far fa-smile"></i>

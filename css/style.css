@@ -129,10 +129,13 @@ body {
     justify-content: left;
     align-items: center;
     height: 70px;
+    cursor: pointer;
     border-top: 1px solid lightgray;
     /* background-color: aquamarine; */
 }
-
+.active {
+    background-color: #EAEAEA;
+}
 .chat img {
     height: 80%;
     border-radius: 50%;
@@ -246,12 +249,12 @@ body {
     justify-content: left;
     align-items: center;
     float: right;
-    height: 40px;
     width: 100%;
     max-width: 300px;
     background-color: #D5F9BA;
     border-radius: 5px;
     margin-bottom: 10px;
+    padding: 10px 0px 20px;
 }
 .messageDate {
     position: absolute;
@@ -271,12 +274,12 @@ body {
     display: flex;
     justify-content: left;
     align-items: center;
-    height: 40px;
     width: 100%;
     max-width: 300px;
     background-color: whitesmoke;
     border-radius: 5px;
     margin-bottom: 10px;
+    padding: 10px 0px 20px;
 }
 
 /* typeMessage start */

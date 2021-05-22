@@ -96,6 +96,8 @@ var app = new Vue({
             },
         ],
         activeContact: 0,
+
+        newMessage: "",
     },
 
     methods: {
@@ -122,6 +124,24 @@ var app = new Vue({
 
         setActive: function (newIndex) {
             this.activeContact = newIndex;
+        },
+
+        sendMessage: function () {
+            console.log("richiamo funzione add");
+            if (this.newMessage.trim().length > 0) {
+                // this.toDoList.push({
+                //     testo: this.newToDo.testo,
+                //     completed: false,
+                // });
+                let newMessageForm = {
+                    date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                    text: this.newMessage,
+                    status: "sent",
+                };
+                this.contacts[this.activeContact].messages.push(newMessageForm);
+
+                this.newMessage = "";
+            }
         },
     },
 });

@@ -101,18 +101,26 @@ body {
     width: 100%;
     height: 8%;
     background-color: #EAEAEA;
+    display: flex;
+    flex-direction: row;
+}
+
+#findChat img {
+    height: calc(100% - 20px);
+    margin: 10px 0px;
+    margin-left: 20px;
+    background-color: whitesmoke;
 }
 
 #findChat input {
-    width: calc(100% - 10px);
+    /* display: inline-block; */
+    /* width: calc(100% - 10px); */
+    flex-grow: 1;
     height: calc(100% - 20px);
-    margin: 10px 5px;
+    margin: 10px 10px 10px 0px;
     border: none;
     border-radius: 2px;
-    background-image: url("../img/search.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    padding-left: 40px;
+    padding-left: 5px
     font-size: 12px;
     background-color: whitesmoke;
 }
@@ -126,6 +134,7 @@ body {
 }
 
 .chat {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: left;
@@ -145,6 +154,7 @@ body {
 }
 
 .nameChat {
+
     display: flex;
     flex-direction: column;
     justify-content: top;
@@ -162,10 +172,13 @@ body {
 }
 
 .dayTime {
+    position: absolute;
+    top: 0;
+    right: 0;
     display: flex;
     flex-direction: row-reverse;
     justify-content: top;
-    height: 80%;
+
     margin-right: 10px;
 }
 .dayTime span {
@@ -309,4 +322,50 @@ body {
 
 .noshow {
     display: none;
+}
+
+@media all and (max-width: 980px) {
+
+    .dayTime span{
+        display: none;
+    }
+
+    .userMessage,
+    .strangerMessage {
+        max-width: 200px;
+    }
+
+    .openChatOptions i {
+        padding: 3px;
+        font-size: 14px;
+    }
+
+    .openChatOptions {
+        margin-right: 10px;
+    }
+
+    #typeMessage i {
+        margin: 10px;
+    }
+
+    #user i {
+        display: none;
+    }
+
+    .bell {
+        padding: 7px;
+        margin-left: 10px;
+    }
+    .bell i {
+        font-size: 18px;
+    }
+
+    .turnOnNotif span:first-child {
+        font-size: 10px;
+    }
+    .turnOnNotif span:last-child {
+        font-size: 10px;
+    }
+
+
 }

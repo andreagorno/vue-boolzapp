@@ -105,22 +105,28 @@ body {
     flex-direction: row;
 }
 
-#findChat img {
-    height: calc(100% - 20px);
+#search {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
     margin: 10px 0px;
-    margin-left: 20px;
+    margin-left: 10px;
     background-color: whitesmoke;
 }
 
+#search img {
+    height: 80%
+}
+
 #findChat input {
-    /* display: inline-block; */
-    /* width: calc(100% - 10px); */
     flex-grow: 1;
     height: calc(100% - 20px);
     margin: 10px 10px 10px 0px;
     border: none;
+    border-left: 1px solid lightgray;
     border-radius: 2px;
-    padding-left: 5px
+    padding-left: 5px;
     font-size: 12px;
     background-color: whitesmoke;
 }

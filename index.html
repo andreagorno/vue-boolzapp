@@ -44,10 +44,13 @@
                     </div>
                 </div>
                 <div id="findChat">
-                    <input type="text" placeholder="Cerca o inizia una nuova chat">
+                    <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchContact"  @keydown.enter="filterByName">
                 </div>
                 <div id="chats">
-                    <div class="chat" :class="(index == activeContact) ? 'active' : '' " v-for="(contact, index) in contacts" @click="setActive(index)">
+                    <div class="chat" v-for="(contact, index) in contacts" :class="{ 
+                    'active' : index == activeContact , 
+                    'noshow' : contact.visible == false
+                    }" @click="setActive(index)">
                         <img alt="profile1" :src="getImage(index)">
                         <div class="nameChat">
                             <span>{{ contact.name }}</span>

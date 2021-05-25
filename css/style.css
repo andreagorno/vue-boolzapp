@@ -9,6 +9,8 @@ body {
     background: linear-gradient(180deg, #009688 20%, #D8DBD7 20%);
 }
 
+
+
 .container {
     display: flex;
     width: 80%;
@@ -303,4 +305,8 @@ body {
     border: none;
     border-radius: 3px;
     background-color: whitesmoke;
+}
+
+.noshow {
+    display: none;
 }

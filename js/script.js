@@ -6,6 +6,13 @@
 // Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i messaggi relativi al contatto attivo all'interno del pannello della conversazione
 // Click sul contatto mostra la conversazione del contatto cliccato
 
+// Milestone 3
+// Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando “enter” il testo viene aggiunto al thread sopra, come messaggio verde
+// Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
+
+// Milestone 4
+// Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
+
 var app = new Vue({
     el: "#root",
 
@@ -98,14 +105,15 @@ var app = new Vue({
         activeContact: 0,
 
         newMessage: "",
+
+        searchContact: "",
+        
     },
 
     methods: {
         getImage: function(contactIndex) {
             return "img/avatar" + this.contacts[contactIndex].avatar + ".jpg";
         },
-
-
 
         getLastMessageData: function (contactIndex) {
             const lastMessageIndex = this.contacts[contactIndex].messages.length - 1;
@@ -127,7 +135,7 @@ var app = new Vue({
         },
 
         sendMessage: function () {
-            console.log("richiamo funzione add");
+            // console.log("richiamo funzione add");
             if (this.newMessage.trim().length > 0) {
                 // this.toDoList.push({
                 //     testo: this.newToDo.testo,
@@ -141,7 +149,30 @@ var app = new Vue({
                 this.contacts[this.activeContact].messages.push(newMessageForm);
 
                 this.newMessage = "";
+
+                setTimeout(function(){ alert("OK"); }, 1000);
             }
+        },
+
+        filterByName: function () {
+            console.log('richiamo funzione');
+            // this.contacts.forEach(element => {
+            //     if(element.name.startsWith(this.searchContact, 0) == false) {
+            //         this.contacts.visible = false;
+            //     };
+            var filter = this.searchContact.toUpperCase();
+
+            
+            this.contacts.forEach(
+                (element, index) => {
+                    if (element.name.toUpperCase().indexOf(filter) > -1) {
+                        this.contacts[index].visible = true;
+                    } else {
+                        this.contacts[index].visible = false;
+                    }
+                });
+        
+            
         },
     },
 });

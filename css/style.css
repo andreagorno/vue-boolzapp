@@ -252,6 +252,7 @@ body {
     height: 80%;
     background-image:url("../img/mine.jpg");
     padding: 40px 50px;
+    overflow-y: auto;
 }
 
 /* #conversation div {

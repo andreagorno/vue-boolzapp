@@ -149,9 +149,17 @@ var app = new Vue({
                 this.contacts[this.activeContact].messages.push(newMessageForm);
 
                 this.newMessage = "";
-
-                setTimeout(function(){ alert("OK"); }, 1000);
             }
+
+            setTimeout(() => {
+            
+                this.contacts[this.activeContact].messages.push({
+                    date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                    text: "ok",
+                    status: "received",
+                });
+
+            }, 1000);
         },
 
         filterByName: function () {
@@ -176,3 +184,6 @@ var app = new Vue({
         },
     },
 });
+
+// firebase (database + autenticazione + hosting)
+// netlify (hosting)
